@@ -1,0 +1,68 @@
+/*
+    Search input and results, works in sync with the "search" plugin
+*/
+
+#book-search-input {
+    transition: top .5s ease;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.07);
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfiAhUMJTU9BQlEAAACl0lEQVQ4y8WTTYhcRRRGz1f1enCGkIgiMULAjUKIP6ABF0YEVzbZC+pSUEHsHnUTwYVEIwyB9EwTDIggKIgLIe4Ssg0ZAwEVZyEu3ARECBroMTOY9Kv7uXg9TnfbQ2aXu7lVRZ069W7dB3crNDntkQhEEgnZcoQA0bkTvELGOAMFhAElKwokTHdnuN+krJDjIE9xv//Wz5u/zqNMYJjjzQm42raO0OJn/REP8TvrmufgwiZL+tbZgW/NNp8hKFTZhRO8wYf+iptSWHM6ximuzr1yC1F5OHH11KQC5OzCSV7iEGe1oUROOQ3jXP0I997+LlkaTtU3/ZcyhRd4laPcoGUionYJUlURbQ6461CeCQey4ANO8CcthnJiESFTkxK8xevMU6wZsJLDj/KAvwlcQ9ABOggYFGVd5Trt7f0TMAKOcE2bKWOzOFp+m2AfluEHnpnui3F4P381o/GKbh3DH+yf7rARbMAbLDTDsxNb3KS93NwBVoDWeHgv9xQYbrUM0McN/zhrO5k95Jfvaa0//w/KIHrAp/SBJAoPctjn3TTE/8xu5UPwBR83q6KizxCDaAGfcEnXlO2Z3+ySlJYpfEYBZ1dkVaoQt3mNI34XHDOvDZkg4BhPcpEDKpRSKK7ZQ5/POacBLcxYNcbebQWQjDIneZkfucJ19vE0z/m8fmOJ9zhN5Rq2nzJvwW0ESIiLfE2Lx3iC+1jjuL/UZdY5zYBVVQS0uTBphpVmIpIKmM7oisokhizS4x2WqagBOuNmuMCLDW5ERWonJSXhIFSxyoAeA1ZJdnfavFOM/BU1i/Q4zhKJ6DD1l8yOxuKaimXep+sFh7VL85g9gefTBgTd3ZnH7AF5I5FGpdolDF2EIIrgp8kWvwvxL/ds/r8nsFTfAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTAyLTIxVDEyOjM3OjUzLTA1OjAw0zhQ+wAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wMi0yMVQxMjozNzo1My0wNTowMKJl6EcAAAAASUVORK5CYII=');
+    background-repeat: no-repeat;
+    background-position: right;
+
+    input, input:focus, input:hover {
+        width: 100%;
+        background: transparent;
+        border: 1px solid transparent;
+        box-shadow: none;
+        outline: none;
+        line-height: 22px;
+        padding: 7px 7px;
+        color: inherit;
+        border-radius: 5px;
+        padding-right: 30px;
+    }
+}
+
+#book-search-results {
+    opacity: 1;
+
+    .search-results {
+        .search-results-title {
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 200;
+            margin-bottom: 35px;
+            opacity: 0.6;
+        }
+
+        .has-results {
+            .search-results-item {
+                .gitbook-markdown(@md-color: @content-color, @md-line-height: @content-line-height);
+            }
+
+            .search-results-item h3 {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+        }
+
+        .no-results {
+            padding: 40px 0px;
+        }
+    }
+}
+
+body.search-loading {
+    #book-search-results {
+        opacity: 0.3;
+    }
+}
+
+// When search is enabled, we hide the navigation left/right
+body.with-search {
+    .navigation {
+        display: none;
+    }
+}
+
